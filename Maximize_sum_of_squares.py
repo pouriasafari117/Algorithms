@@ -17,20 +17,19 @@ su = 3
 # Explanation:
 # There are 3 good integers: 12, 21, and 30.
 # The maximum score is 9, which is achieved by the good integer 30. Therefore, the answer is "30".
+def main():
+    if num * 9 < su:
+        return ''
 
-s = ''
-while num > 0:
-    if su - 9 > 0:
-        s += '9'
-        su -= 9
-    else:
-        s += str(su)
-        su = 0
-    num -= 1
+    s = ''
+    while num > 0:
+        if su - 9 > 0:
+            s += '9'
+            su -= 9
+        else:
+            s += str(su)
+            su = 0
+        num -= 1
 
-s += '0'*num
-
-# s = ''
-# for i in lis:
-#     s += i
-print(s)
+    s += '0'*num
+    return s
