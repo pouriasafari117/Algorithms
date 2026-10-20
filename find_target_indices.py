@@ -21,48 +21,14 @@ target = 2
 # Explanation: After sorting, nums is [1,2,2,3,5].
 # The index where nums[i] == 3 is 3.
 
+se = {-1 : 0 , 1 : 0}
+for i in range(nums):
+    if nums[i] < target:
+        se[-1] += 1
 
-def main_sort_func(a):
-    if len(a) <= 1:
-        return a
+    elif nums[i] > target:
+        se[1] += 1
 
-    mid = len(a) // 2
-    left = main_sort_func(a[:mid])
-    right = main_sort_func(a[mid:])
 
-    return merge(left , right)
-
-def merge(a , b):
-    x = 0
-    y = 0
-    final = []
-    while x < len(a) and y < len(b):
-        if a[x] < b[y]:
-            final.append(a[x])
-            x += 1
-
-        else:
-            final.append(b[y])
-            y += 1
-
-    final += a[x:]
-    final += b[y:]
-
-    return final
-
-k = main_sort_func(nums)
-
-lis = []
-flag = False
-for i in range(len(k)):
-    if k[i] < target:
-        continue
-    elif k[i] > target:
-        break
-    else:
-        flag = True
-
-    if flag:
-        lis += [i]
-
-print(lis)
+if se[-1] != 0 and se[1] != 0:
+    lis = [i for i in range(se[-1] , len(nums) - se[1] - 1)]
