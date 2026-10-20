@@ -1,0 +1,33 @@
+# Intro :
+# You are given a 0-indexed integer array nums.
+
+# The distinct count of a subarray of nums is defined as:
+
+# Let nums[i..j] be a subarray of nums consisting of all the indices from i to j such that 0 <= i <= j < nums.length. Then the number of distinct values in nums[i..j] is called the distinct count of nums[i..j].
+# Return the sum of the squares of distinct counts of all subarrays of nums.
+
+# A subarray is a contiguous non-empty sequence of elements within an array.
+
+# Example 1:
+
+nums = [1,2,1]
+nums = [2, 1, 5, 3]
+
+# Output: 15
+# Explanation: Six possible subarrays are:
+# [1]: 1 distinct value
+# [2]: 1 distinct value
+# [1]: 1 distinct value
+# [1,2]: 2 distinct values
+# [2,1]: 2 distinct values
+# [1,2,1]: 2 distinct values
+# The sum of the squares of the distinct counts in all subarrays is equal to 12 + 12 + 12 + 22 + 22 + 22 = 15.
+
+res = 0
+for i in range(1 , len(nums)+1):
+    for l in range(len(nums)-i+1):
+        # print(set(nums[l:l+i]))
+        # print(nums[l:l+i])
+        res += len(set(nums[l:l+i]))**2
+
+print(res)
