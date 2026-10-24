@@ -93,6 +93,7 @@ def main():
         s_d += 1
         counter += 1
 
-    return counter
+    # with this condition we lost the last case counting. so we add 1 to res.
+    return counter + 1
 
 print(main())
