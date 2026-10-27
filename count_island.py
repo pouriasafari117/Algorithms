@@ -9,44 +9,6 @@ k = 5
 # The grid contains four islands. The islands highlighted in blue have a total value that is divisible by 5, while the islands highlighted in red do not.
 checked = {}
 
-# def dfs1(a , i , j):
-#     if 0 <= i-1 < len(a) and 0 <= j < len(a[0]) and not ((i-1 , j) in checked) and a[i-1][j] != 0:
-#         checked[(i-1 , j)] = True
-#         return a[i-1][j] + dfs1(a , i-1 , j)
-    
-#     if 0 <= i+1 < len(a) and 0 <= j < len(a[0]) and not ((i+1 , j) in checked) and a[i+1][j] != 0:
-#         checked[(i+1 , j)] = True
-#         return a[i+1][j] + dfs1(a , i+1 , j)
-    
-#     if 0 <= i < len(a) and 0 <= j-1 < len(a[0]) and not ((i , j-1) in checked) and a[i][j-1] != 0:
-#         checked[(i , j-1)] = True
-#         return a[i][j-1] + dfs1(a , i , j-1)
-    
-#     if 0 <= i < len(a) and 0 <= j+1 < len(a[0]) and not ((i , j+1) in checked) and a[i][j+1] != 0:
-#         checked[(i , j+1)] = True
-#         return a[i][j+1] + dfs1(a , i , j+1)
-
-#     return 0
-
-# def dfs0(a , i , j):
-#     if 0 <= i-1 < len(a) and 0 <= j < len(a[0]) and not ((i-1 , j) in checked) and a[i-1][j] == 0:
-#         checked[(i-1 , j)] = True
-#         return a[i-1][j] + dfs0(a , i-1 , j)
-
-#     if 0 <= i+1 < len(a) and 0 <= j < len(a[0]) and not ((i+1 , j) in checked) and a[i+1][j] == 0:
-#         checked[(i+1 , j)] = True
-#         return a[i+1][j] + dfs0(a , i+1 , j)
-    
-#     if 0 <= i < len(a) and 0 <= j-1 < len(a[0]) and not ((i , j-1) in checked) and a[i][j-1] == 0:
-#         checked[(i , j-1)] = True
-#         return a[i][j-1] + dfs0(a , i , j-1)
-    
-#     if 0 <= i < len(a) and 0 <= j+1 < len(a[0]) and not ((i , j+1) in checked) and a[i][j+1] == 0:
-#         checked[(i , j+1)] = True
-#         return a[i][j+1] + dfs0(a , i , j+1)
-
-#     return 0
-
 def dfs1(a, i, j):
     q = []
     head = 0
@@ -156,6 +118,7 @@ print(lis)
 
 res = 0
 for i in lis:
-    if i % k == 0:
+
+    if i != 0 and i % k == 0:
         res += 1
 print(res)
