@@ -74,8 +74,6 @@ def main2():
     x2 = mix1_3 - man1_1
     x3 = mix1_2 - man2
 
-    print(man1 , man2 , man3 , mix1 , man1_1 , mix1_3 , mix1_2 , mix1_1)
-
     if x1 < x2 and x1 < x3:
         return x1
     elif x2 < x1 and x2 < x3:
